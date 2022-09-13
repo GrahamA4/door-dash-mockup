@@ -3,7 +3,7 @@ import React from 'react';
 export const HistoryList = ({ list }) => {
   const renderedHistory = list.map((history) => (
     <ul>
-      <li>{history}</li>
+      <li>{history.value}</li>
     </ul>
   ));
 

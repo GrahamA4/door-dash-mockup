@@ -6,7 +6,7 @@ import { searchAdded } from './searchSlice';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [showHistory, setShowHistory] = useState(false);
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -16,8 +16,24 @@ export const Search = () => {
   const onSearchChange = (e) => setSearchTerm(e.target.value);
   const onSearchHistory = (e) => {
     if (searchTerm && e.key === 'Enter') {
-      dispatch(searchAdded(searchTerm));
+      dispatch(searchAdded({ id: 'history', value: searchTerm }));
       setSearchTerm('');
+    }
+  };
+  const titles = markets.map((store) => store.title.toLowerCase());
+
+  const Match = titles.filter((title) =>
+    title.includes(searchTerm.toLowerCase())
+  );
+
+  const renderedSearch = () => {
+    if (Match.length === 0) {
+      return <h4>not found</h4>;
+    }
+    if (Match && searchTerm) {
+      return <SearchList list={searchedStores} />;
+    } else {
+      return <HistoryList list={searchHistory} />;
     }
   };
 
@@ -36,14 +52,10 @@ export const Search = () => {
         value={searchTerm}
         onChange={onSearchChange}
         onKeyPress={onSearchHistory}
-        onFocus={() => setShowHistory(true)}
-        onBlur={() => setShowHistory(false) + setSearchTerm('')}
+        onFocus={() => setShow(true)}
+        onBlur={() => setShow(false)}
       />
-      {searchTerm ? (
-        <SearchList list={searchedStores} />
-      ) : showHistory ? (
-        <HistoryList list={searchHistory} />
-      ) : null}
+      {show ? renderedSearch() : null}
     </section>
   );
 };

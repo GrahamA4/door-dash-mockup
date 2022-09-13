@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = ['test'];
+const initialState = [{ id: 'history', value: 'test' }];
 
 const searchSlice = createSlice({
   name: 'searches',
