@@ -5,7 +5,7 @@ export const Navbar = () => {
   return (
     <nav>
       <section className="navbar">
-        <h2>DoorDash Mockup</h2>
+        <h2>DoorDash</h2>
         <Search />
         <div className="navContent">
           <div className="navLinks"></div>

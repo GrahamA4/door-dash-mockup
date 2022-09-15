@@ -68,6 +68,8 @@ form{
   height: 3vh;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 
 }
 

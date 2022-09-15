@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SearchList } from './SearchList';
 import { HistoryList } from './HistoryList';
 import { searchAdded } from './searchSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,7 +17,7 @@ export const Search = () => {
   const onSearchChange = (e) => setSearchTerm(e.target.value);
   const onSearchHistory = (e) => {
     if (searchTerm && e.key === 'Enter') {
-      dispatch(searchAdded({ id: 'history', value: searchTerm }));
+      dispatch(searchAdded({ id: nanoid(), value: searchTerm }));
       setSearchTerm('');
     }
   };
