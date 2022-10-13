@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './app/Navbar';
 import { MarketsList } from './features/Markets/MarketsList';
 import { AddMarketForm } from './features/Markets/AddMarketForm';
+import { User } from './features/user/user';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               </React.Fragment>
             }
           />
+          <Route path="login" element={<User />} />
         </Routes>
       </div>
     </Router>

@@ -19,12 +19,14 @@ nav > section {
   align-items:center;
 }
 
-nav > section > h2 {
-  color: red;
-}
 
 .navContent{
   border: black solid 1px;
+}
+
+.Home{
+  color: red;
+
 }
 
 
