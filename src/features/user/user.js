@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 export const User = () => {
-  const [userName, setUserName] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [password, setPassword] = useState('');
 
-  let onUnameChange = (e) => setUserName(e.target.value);
+  let onUnameChange = (e) => setFirstName(e.target.value);
   let onPasswordChange = (e) => setPassword(e.target.value);
 
   let database = {
@@ -14,7 +14,7 @@ export const User = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userName == database.uname && password == database.upass) {
+    if (firstName == database.uname && password == database.upass) {
       return console.log('succesful');
     } else {
       console.log('TRY AGAIN');
@@ -29,7 +29,7 @@ export const User = () => {
           <input
             name="uname"
             required
-            value={userName}
+            value={firstName}
             onChange={onUnameChange}
             id="uname"
           />

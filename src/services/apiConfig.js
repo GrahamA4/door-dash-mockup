@@ -5,3 +5,25 @@ const getToken = () => {
     resolve(`Bearer ${localStorage.getItem('token') || null}`);
   });
 };
+
+const herokuURL = 'doordash-backend.herokuapp.com/api';
+
+const api = axios.create({
+  baseURL:
+    process.env.NODE_ENV === 'production'
+      ? `https://${herokuURL}`
+      : 'http://localhost:3000/api'
+});
+
+api.interceptors.request.use(
+  async function (config) {
+    config.headers['Authorization'] = await getToken();
+    return config;
+  },
+  function (error) {
+    console.log('Request error: ', error);
+    return Promise.reject(error);
+  }
+);
+
+export default api;
