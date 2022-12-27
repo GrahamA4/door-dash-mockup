@@ -10,7 +10,7 @@ export const Navbar = () => {
           <h2 className="Home">DoorDash</h2>
         </Link>
         <Search />
-        <Link to="login">Login</Link>
+        <Link to="signUp">Sign Up</Link>
 
         <div className="navContent">
           <div className="navLinks"></div>

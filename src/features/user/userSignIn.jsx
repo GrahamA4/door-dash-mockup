@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+// import { signIn } from '../../services/apiUsers';
+// import { useHistory } from 'react-router-dom';
+// import { useEffect } from 'react';
 
-export const User = () => {
-  const [firstName, setFirstName] = useState('');
-  const [password, setPassword] = useState('');
+const userSignIn = () => {
+  const [form, setForm] = useState({
+    email: '',
+    password: ''
+  });
 
   let onUnameChange = (e) => setFirstName(e.target.value);
   let onPasswordChange = (e) => setPassword(e.target.value);
@@ -52,3 +57,4 @@ export const User = () => {
     </section>
   );
 };
+export default userSignIn;
