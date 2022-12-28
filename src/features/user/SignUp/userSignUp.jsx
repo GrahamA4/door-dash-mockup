@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { signUp } from "../../services/apiUsers";
+import { signUp } from "../../../services/apiUsers";
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from "react";
 
 
 const SignUp = (props) =>{
     const history = useNavigate()
+
+    useEffect(() => {
+        props.setScreen('sign-up')
+    }, )
 
 const [form, setForm] = useState({
     firstName: '',
@@ -26,7 +30,7 @@ const onSignUp = async (event) => {
     try{
         const user = await signUp(form)
         setUser(user)
-        history.push('/')
+        history('/')
     }catch (error) {
         console.error(error)
         setForm({

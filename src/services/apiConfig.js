@@ -12,9 +12,9 @@ const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'production'
       ? `https://${herokuURL}`
-      : 'http://localhost:3000/api'
+      : 'http://localhost:3001/api'
 });
-
+console.log(herokuURL);
 api.interceptors.request.use(
   async function (config) {
     config.headers['Authorization'] = await getToken();

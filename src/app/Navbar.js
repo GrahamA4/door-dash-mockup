@@ -1,8 +1,9 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from '../features/SearchBar/Search';
 
-export const Navbar = () => {
+export const Navbar = ({ user, handleLogout }) => {
   return (
     <nav>
       <section className="navbar">
@@ -16,6 +17,10 @@ export const Navbar = () => {
           <div className="navLinks"></div>
         </div>
       </section>
+      <div>{user ? `Hello ${user.firstName}` : null}</div>
+      <button className="links" onClick={handleLogout}>
+        Logout
+      </button>
     </nav>
   );
 };
