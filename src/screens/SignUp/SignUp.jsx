@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { signUp } from "../../../services/apiUsers";
+import { useState, useEffect } from "react";
+import { signUp } from "../../services/apiUsers"
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from "react";
-
 
 const SignUp = (props) =>{
     const history = useNavigate()
@@ -36,6 +34,7 @@ const onSignUp = async (event) => {
         setForm({
             firstName: '',
             lastName: '',
+            email: '',
             password: '',
             isError: true,
             errorMsg: 'Sign Up Details Invalid'

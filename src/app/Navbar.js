@@ -12,6 +12,8 @@ export const Navbar = ({ user, handleLogout }) => {
         </Link>
         <Search />
         <Link to="signUp">Sign Up</Link>
+        <Link to="signIn">SignIn</Link>
+        <Link to="signOut">signOut</Link>
 
         <div className="navContent">
           <div className="navLinks"></div>

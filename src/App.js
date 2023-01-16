@@ -6,11 +6,11 @@ import {
 } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Home from './screens/Home/Home';
 import { Navbar } from './app/Navbar';
-import { MarketsList } from './features/Markets/MarketsList';
-import { AddMarketForm } from './features/Markets/AddMarketForm';
 import { verifyUser } from './services/apiUsers';
-import SignUp from './features/user/SignUp/userSignUp';
+import SignUp from './screens/SignUp/SignUp';
+import SignIn from './screens/SignIn/SignIn';
 import { signOut } from './services/apiUsers';
 
 function App() {
@@ -40,8 +40,7 @@ function App() {
             exact
             element={
               <React.Fragment>
-                <MarketsList />
-                <AddMarketForm />
+                <Home props={screen} setScreen={setScreen} />
               </React.Fragment>
             }
           />
@@ -49,6 +48,18 @@ function App() {
             path="signUp"
             element={
               <SignUp
+                setUser={setUser}
+                user={user}
+                screen={screen}
+                setScreen={setScreen}
+              />
+            }
+          />
+
+          <Route
+            path="signIn"
+            element={
+              <SignIn
                 setUser={setUser}
                 user={user}
                 screen={screen}
