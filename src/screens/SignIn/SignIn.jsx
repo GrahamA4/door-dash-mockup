@@ -31,6 +31,7 @@ const SignIn = (props) => {
     try {
       const user = await signIn(form)
       setUser(user)
+      console.log(user)
       history('/')
     } catch (error) {
       console.log(error)
