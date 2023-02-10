@@ -30,7 +30,6 @@ function App() {
     setUser(null);
   };
 
-  console.log(user);
   return (
     <Router>
       <Navbar handleLogout={handleLogout} user={user} />

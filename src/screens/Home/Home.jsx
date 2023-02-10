@@ -4,10 +4,10 @@ import { AddMarketForm } from '../../features/Markets/AddMarketForm';
 
 
 const Home = (props) => {
-    console.log(MarketsList)
-
-    return (
+    return (<>
         <h1>Home</h1>
+        < MarketsList/>
+    </>
     )
 }
 
